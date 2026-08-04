@@ -1,0 +1,20 @@
+server:
+  port: 443
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  
+
+spring:
+  cloud:
+    gateway:      
+      server: 
+        webflux:
+          discovery:
+            locator:
+              enabled: true 
+              lower-case-service-id: true 
+          # default-filters bien indentado dentro de la estructura webflux
+          default-filters:
+            - RewritePath=/^/.*?/(?<remaining>.*)$, /${remaining}
