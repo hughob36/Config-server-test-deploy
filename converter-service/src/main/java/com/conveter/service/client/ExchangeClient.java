@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Map;
 
-@FeignClient(name = "EXCHANGE-SERVICE")
+@FeignClient(name = "exchange-service")
 public interface ExchangeClient {
 
     @GetMapping("/api/rate")
