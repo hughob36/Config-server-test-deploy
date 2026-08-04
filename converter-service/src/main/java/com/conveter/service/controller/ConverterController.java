@@ -17,7 +17,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class ConverterController {
 
-    @Autowired
+
     private final ExchangeClient exchangeClient;
 
     @GetMapping("/convert")
