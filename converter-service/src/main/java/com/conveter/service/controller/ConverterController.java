@@ -1,6 +1,7 @@
 package com.conveter.service.controller;
 
 import com.conveter.service.client.ExchangeClient;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,10 +14,11 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class ConverterController {
 
     @Autowired
-    private ExchangeClient exchangeClient;
+    private final ExchangeClient exchangeClient;
 
     @GetMapping("/convert")
     public ResponseEntity<Map<String, Object>> convert(@RequestParam Double amount) {
