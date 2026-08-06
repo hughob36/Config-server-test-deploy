@@ -21,11 +21,18 @@ public class ConverterController {
     private final ExchangeClient exchangeClient;
 
     @GetMapping("/convert")
-    public ResponseEntity<Map<String, Object>> convert(@RequestParam Double amount) {
+    public ResponseEntity<?> convert(@RequestParam Double amount) {
 
         Map<String, Double> response = exchangeClient.getRate();
-        Double rate = response.get("rate");
 
+        // Validar si la respuesta o la clave son nulas
+        if (response == null || !response.containsKey("rate") || response.get("rate") == null) {
+            Map<String, String> error = new HashMap<>();
+            error.put("error", "No se pudo obtener la tasa desde exchange-service. Verifica la estructura del JSON respuesta.");
+            return ResponseEntity.status(500).body(error);
+        }
+
+        Double rate = response.get("rate");
         Double total = amount * rate;
 
         Map<String, Object> result = new HashMap<>();
