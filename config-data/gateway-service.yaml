@@ -9,9 +9,17 @@ eureka:
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      default-filters:
-        - RewritePath=/(?<segment>.*)/(?<remaining>.*), /${remaining}
+      routes:
+        - id: exchange-service
+          uri: lb://EXCHANGE-SERVICE
+          predicates:
+            - Path=/exchange-service/**
+          filters:
+            - StripPrefix=1
+
+        - id: converter-service
+          uri: lb://CONVERTER-SERVICE
+          predicates:
+            - Path=/converter-service/**
+          filters:
+            - StripPrefix=1
