@@ -15,6 +15,7 @@ public class RateController {
     @GetMapping("/rate")
     public ResponseEntity<Map<String,Double>> getRate() {
 
+        //comentario
         Map<String,Double> rateMap = new HashMap<>();
         rateMap.put("rate",1500.0);
 
