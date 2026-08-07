@@ -1,5 +1,4 @@
-package com.exchange_service.controller;
-
+package com.exchange.service.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +15,7 @@ public class RateController {
     @GetMapping("/rate")
     public ResponseEntity<Map<String,Double>> getRate() {
 
+        //comentario
         Map<String,Double> rateMap = new HashMap<>();
         rateMap.put("rate",1500.0);
 

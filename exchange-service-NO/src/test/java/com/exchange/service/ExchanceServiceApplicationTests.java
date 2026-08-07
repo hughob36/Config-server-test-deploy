@@ -1,10 +1,10 @@
-package com.exchange_service;
+package com.exchange.service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExchangeServiceApplicationTests {
+class ExchanceServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
