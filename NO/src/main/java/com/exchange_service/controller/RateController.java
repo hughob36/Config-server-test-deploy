@@ -1,4 +1,5 @@
-package com.exchance.service.controller;
+package com.exchange_service.controller;
+
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
