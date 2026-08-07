@@ -15,13 +15,13 @@ spring:
         - id: exchange-service
           uri: https://stunning-celebration-production-3657.up.railway.app
           predicates:
-            - Path=/exchange-service/{segment}
+            - Path=/exchange-service/**
           filters:
-            - SetPath=/{segment}
+            - StripPrefix=1
 
         - id: converter-service
           uri: https://courageous-enjoyment-production-a711.up.railway.app
           predicates:
-            - Path=/converter-service/{segment}
+            - Path=/converter-service/**
           filters:
-            - SetPath=/{segment}
+            - StripPrefix=1
