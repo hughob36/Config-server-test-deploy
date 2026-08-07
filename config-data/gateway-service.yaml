@@ -11,14 +11,14 @@ spring:
     gateway:
       routes:
         - id: exchange-service
-          uri: lb://EXCHANGE-SERVICE
+          uri: https://stunning-celebration-production-3657.up.railway.app
           predicates:
             - Path=/exchange-service/**
           filters:
             - StripPrefix=1
 
         - id: converter-service
-          uri: lb://CONVERTER-SERVICE
+          uri: https://courageous-enjoyment-production-a711.up.railway.app
           predicates:
             - Path=/converter-service/**
           filters:
