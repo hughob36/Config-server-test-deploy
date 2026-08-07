@@ -43,4 +43,9 @@ public class ConverterController {
         return ResponseEntity.ok(result);
     }
 
+    @GetMapping("/hola")
+    public ResponseEntity<String> hola() {
+        return ResponseEntity.ok("Hola");
+    }
+
 }
