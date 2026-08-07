@@ -7,19 +7,21 @@ eureka:
       defaultZone: ${EUREKA_SERVER_URL:http://localhost:8761/eureka/}
 
 spring:
+  application:
+    name: gateway-service
   cloud:
     gateway:
       routes:
         - id: exchange-service
           uri: https://stunning-celebration-production-3657.up.railway.app
           predicates:
-            - Path=/exchange-service/**
+            - Path=/exchange-service/{segment}
           filters:
-            - StripPrefix=1
+            - SetPath=/{segment}
 
         - id: converter-service
           uri: https://courageous-enjoyment-production-a711.up.railway.app
           predicates:
-            - Path=/converter-service/**
+            - Path=/converter-service/{segment}
           filters:
-            - StripPrefix=1
+            - SetPath=/{segment}
